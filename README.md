@@ -1,1 +1,19 @@
-# DeliveryApplication
+Что необходимо для запуска:
+скачать код с репозитория,
+скачать через менеджер пакетов nuget(или любой другой) пакеты:
+Microsoft.EntityFrameworkCore и Microsoft.EntityFrameworkCore.SqlServer
+
+Как это устроено: 
+CONTROLLERS
+HomeController отвечает за отображение списка всех заказов и возможность просматривать подробную информацию о них
+CreateNewOrderController отвечает за создание нового заказа
+
+MODELS
+DataBase
+OrderDBContext содержит модель заказа (класс Order) и контекст БД (класс OrderDBContext)
+OrderService предоставляет методы обращения с контекстом БД: добавления нового заказа, получение заказа по уникальному номеру
+и получение всех заказов
+Рядом находится статический класс UniqueNumberGenerator который генерирует этот уникальный номер
+
+Program.cs
+Помимо сгенерированного кода тут есть внедрение зависимостей OrderDBContext и OrderService которые создаются как синглтоны
