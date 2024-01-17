@@ -1,0 +1,37 @@
+﻿@model IEnumerable<DeliveryApplication.Models.DataBase.Order>
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Сервис Доставки</title>
+        <link href="~/css/site.css" rel="sitestyle" />
+
+    </head>
+
+    <body>
+        <form>
+            <button asp-controller="CreateNewOrder" asp-action="CreateNewOrderForm" method="get">Создать новый заказ</button>
+        </form>
+        <h1>--------------------------------------------</h1>
+
+        @foreach (var order in Model)
+        {
+            <form asp-action="ShowOrder" method="post" asp-route-orderNumber="@order.OrderNumber">
+
+                <p class="text">Номер заказа: @order.OrderNumber</p>
+                <button type="submit">просмотреть заказ</button>
+            </form>
+            <h1>--------------------------------------------</h1>
+        }
+
+        @if (Model.Count() == 0)
+        {
+            <h1>На текущий момент заказов нет(</h1>
+        }
+    </body>
+</html>

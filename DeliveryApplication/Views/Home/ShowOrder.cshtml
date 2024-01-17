@@ -1,0 +1,18 @@
+﻿@model DeliveryApplication.Models.DataBase.Order
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+
+<h1>Заказ:</h1>
+<form>
+    <h3>Номер заказа: @Model.OrderNumber</h3>
+    <h3>Адрес отправителя @Model.AddressOfSender</h3>
+    <h3>Город отправителя @Model.CityOfSender</h3>
+    <h3>Адрес получателя @Model.AddressOfRecipient</h3>
+    <h3>Город получателя @Model.CityOfRecipient</h3>
+    <h3>Вес груза @Model.CargoWeight</h3>
+    <h3>Дата забора груза @Model.CargoPickupDate</h3>
+</form>
+
+<form  asp-action="Home" method="get">
+    <button type="submit">Вернуться на главную страницу</button>
+</form>
+
